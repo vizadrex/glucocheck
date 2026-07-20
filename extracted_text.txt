@@ -1,0 +1,160 @@
+ COMPONENTES DEL APLICATIVO GLUCOCHECK
+Fundamentación teórica y científica de cada módulo funcional
+El aplicativo GlucoCheck es una herramienta digital de salud móvil (mHealth) diseñada específicamente para mejorar la adherencia al tratamiento integral en pacientes con diabetes mellitus tipo 2 (DM2). La Organización Mundial de la Salud (OMS, 2016, como se citó en Quevedo Rodríguez y Wägner, 2023) define la mHealth como el uso de dispositivos móviles —como smartphones y tabletas— para la práctica médica y la salud pública, reconociéndola como un área de crecimiento acelerado con potencial transformador para el manejo de enfermedades crónicas no transmisibles como la DM2.
+El diseño de GlucoCheck se fundamenta en el modelo de Autocuidado de Déficit de Orem (1991, como se citó en Osorio-Hernández et al., 2024), que establece que el paciente con una enfermedad crónica requiere un sistema de apoyo educativo para desarrollar las competencias de autocuidado necesarias para gestionar su condición de forma autónoma. Asimismo, el diseño de sus funcionalidades responde a las recomendaciones de la Asociación Americana de Diabetes (ADA, 2024) sobre tecnología en diabetes y a los hallazgos de revisiones sistemáticas y metaanálisis que identifican los componentes funcionales con mayor asociación a la reducción de la HbA1c y la mejora de la adherencia terapéutica en pacientes con DM2 (He et al., 2022; Islam et al., 2022; Moura et al., 2024).
+He et al. (2022), en un metaanálisis de 17 ensayos clínicos aleatorizados sobre intervenciones de autogestión basadas en smartphones en pacientes con DM2, encontraron una reducción significativa de la HbA1c (DME = -0.39; IC 95%: -0.55 a -0.24; p < 0.001) en comparación con la atención habitual, con efectos más pronunciados en aplicativos que combinaban múltiples funcionalidades: recordatorios de medicación, registro de glucemia, educación en salud y retroalimentación personalizada. En ese mismo sentido, Moura et al. (2024) concluyeron que los aplicativos con módulos de monitoreo activo y contenido educativo interactivo maximizan la adherencia al tratamiento y el control glucémico en pacientes con DM2. Sobre la base de esta evidencia, GlucoCheck integra seis componentes funcionales interconectados, que se describen a continuación.
+Componente 1: Módulo de Registro y Monitoreo de Glucemia
+N.° Componente
+Componente 1
+Nombre
+Módulo de Registro y Monitoreo de Glucemia
+Representación
+📊  [Gráfico de glucemia / diario glucémico]
+Función principal
+Permite al paciente registrar manualmente sus valores de glucemia capilar (mg/dL) en ayunas, preprandial y postprandial, con hora, fecha y contexto clínico (actividad física, ingesta, medicación). Genera gráficos de evolución semanal y mensual, alertas automáticas ante valores fuera del rango establecido (<70 mg/dL o >180 mg/dL) e historial exportable para revisión médica.
+Evidencia científica
+He et al. (2022); Moura et al. (2024); ADA Standards of Care (2024); Quevedo y Wägner (2023)
+El monitoreo regular de la glucemia es una de las conductas de autocuidado con mayor impacto en el control metabólico de la DM2. La ADA (2024) recomienda que todos los pacientes con DM2 en tratamiento intensificado realicen automonitoreo de glucemia capilar (AMGC) con una frecuencia adaptada a su régimen terapéutico, dado que el AMGC proporciona información inmediata sobre el efecto de la alimentación, el ejercicio y la medicación sobre los niveles de glucosa. Sin embargo, la adherencia al automonitoreo es una de las dimensiones de menor cumplimiento en pacientes con DM2, principalmente por olvido y falta de registro sistemático (Quevedo Rodríguez y Wägner, 2023).
+El módulo de registro de glucemia de GlucoCheck resuelve esta brecha al ofrecer una interfaz simplificada para el ingreso rápido de valores, con campos de contexto clínico y visualización gráfica inmediata de la tendencia glucémica. Los aplicativos con registro de glucemia han demostrado incrementar el número de autocontroles por mes en +8.8 determinaciones (IC 95%: 3.4 a 14.1; p < 0.001) y producir una reducción promedio de glucemia de 6.4 mg/dL frente a la atención habitual (Redgdps, 2022). Adicionalmente, el sistema de alertas automáticas ante hipoglucemia e hiperglucemia dota al paciente de mayor seguridad clínica y favorece la consulta oportuna con el equipo de salud.
+Componente 2: Módulo de Recordatorio de Medicación
+N.° Componente
+Componente 2
+Nombre
+Módulo de Recordatorio y Seguimiento de Medicación
+Representación
+💊  [Ícono de pastillas / alarma]
+Función principal
+Envía notificaciones push y alertas sonoras personalizadas para recordar al paciente la toma de cada medicamento hipoglucemiante (metformina, insulina u otros) en la dosis, horario y vía de administración prescrita por su médico. Permite registrar si la dosis fue tomada, omitida o pospuesta, y genera un reporte semanal de adherencia farmacológica con porcentaje de cumplimiento.
+Evidencia científica
+Islam et al. (2022); Benítez Matas et al. (2021); Campoverde González et al. (2024); ADA (2024)
+El olvido involuntario de la medicación es la causa más frecuente de no adherencia farmacológica en pacientes con DM2 (Islam et al., 2022). Islam et al. (2022), en una revisión sistemática de 22 aplicativos para la adherencia a la medicación en diabetes, concluyeron que los recordatorios de medicación mediante notificaciones push son la funcionalidad con mayor evidencia de efectividad para mejorar la adherencia farmacológica, con una reducción significativa de las dosis omitidas en comparación con grupos control sin recordatorio (p < 0.05 en el 73% de los estudios incluidos). Las guías de práctica clínica actuales recomiendan el uso de aplicaciones móviles con recordatorios como estrategia de primera línea para reducir la adherencia involuntaria en pacientes con enfermedades crónicas (Benítez Matas et al., 2021).
+El módulo de recordatorio de GlucoCheck permite al paciente configurar múltiples alarmas diarias para cada medicamento de su esquema terapéutico, incluyendo insulina basal o prandial. Cada notificación incluye el nombre del medicamento, la dosis y la vía de administración, y solicita al paciente confirmar la toma mediante un botón de registro. Esto no solo garantiza el recordatorio, sino que genera un historial de cumplimiento farmacológico que puede ser revisado por el equipo de salud en cada consulta, facilitando el ajuste del tratamiento en función del patrón real de adherencia del paciente (Campoverde González et al., 2024).
+Componente 3: Módulo de Seguimiento Dietético y Nutricional
+N.° Componente
+Componente 3
+Nombre
+Módulo de Seguimiento Dietético y Nutricional
+Representación
+🥗  [Plato saludable / semáforo nutricional]
+Función principal
+Permite al paciente registrar sus comidas principales y colaciones, con estimación del contenido de carbohidratos por ración y clasificación por índice glucémico (bajo/medio/alto). Incluye un banco de alimentos peruanos comunes, orientación sobre porciones recomendadas y recordatorios de horarios de comida. Ofrece retroalimentación inmediata sobre la adecuación dietética de cada comida registrada y gráfico semanal de cumplimiento del plan alimentario.
+Evidencia científica
+Pascual et al. (2021); Juárez-Pacheco et al. (2023); Flores-Fuentes et al. (2025); ADA (2024)
+La 
+terapia
+ 
+médica
+ 
+nutricional
+ es el pilar terapéutico no farmacológico con mayor impacto en el control metabólico de la DM2, con una capacidad de reducción de la HbA1c de entre 0.3 y 2.0% en los primeros 3 a 6 meses de implementación (Pascual et al., 2021). Sin embargo, la adherencia a las recomendaciones dietéticas es particularmente difícil de sostener en contextos de bajos recursos, donde el conocimiento teórico de la dieta no siempre se traduce en prácticas alimentarias saludables (Flores-Fuentes et al., 2025). Juárez-Pacheco et al. (2023) identificaron que la falta de retroalimentación inmediata sobre el impacto glucémico de las comidas es una de las barreras más frecuentes para la adherencia dietética en pacientes con DM2 en contextos latinoamericanos.
+El módulo dietético de GlucoCheck responde a esta necesidad al ofrecer un banco de alimentos adaptado al contexto peruano —que incluye alimentos andinos, costeños y de consumo frecuente en la zona de Huaral—, con información del contenido de carbohidratos por porción y una clasificación por semáforo nutricional de fácil interpretación. La retroalimentación inmediata sobre la adecuación glucémica de las comidas registradas permite al paciente tomar decisiones alimentarias más informadas en su vida cotidiana, fortaleciendo su autoeficacia dietética y su empoderamiento como agente de su propio autocuidado (Marín Sánchez et al., 2025).
+Componente 4: Módulo de Registro y Motivación de Actividad Física
+N.° Componente
+Componente 4
+Nombre
+Módulo de Registro y Motivación de Actividad Física
+Representación
+🏃  [Figura en movimiento / podómetro]
+Función principal
+Permite registrar el tipo, duración e intensidad de la actividad física diaria realizada (caminata, ciclismo, ejercicios en casa, entre otros). Incluye un podómetro integrado, metas semanales personalizadas de pasos y minutos de actividad, recordatorios para romper el sedentarismo cada 2 horas, y mensajes motivacionales basados en el progreso semanal. Genera reportes visuales de actividad por semana y retroalimentación sobre el cumplimiento de la recomendación ADA de 150 min/semana.
+Evidencia científica
+ADA (2024); Kim et al. (2024); Pérez-Kast et al. (2024); Rodríguez Meléndez et al. (2023)
+Indicador de uso
+Minutos de actividad física por semana; número de días activos; cumplimiento de meta semanal (150 min); pasos diarios promedio
+La actividad física regular es uno de los pilares terapéuticos con mayor respaldo científico para la reducción de la HbA1c y la mejora de la sensibilidad a la insulina en pacientes con DM2. Kim et al. (2024), en un ensayo clínico aleatorizado con 120 pacientes con DM2, demostraron que una intervención basada en aplicativo móvil con registro de actividad, conteo de pasos y recordatorios de ejercicio incrementó significativamente los minutos semanales de actividad física moderada frente al grupo control (diferencia media: 47.3 min/semana; IC 95%: 28.1–66.5; p < 0.001), con una reducción adicional de la HbA1c de 0.31% en el grupo con aplicativo. Rodríguez Meléndez et al. (2023) subrayan que los programas de ejercicio más efectivos son aquellos que ofrecen metas progresivas, retroalimentación frecuente y motivación adaptada al estado funcional del paciente, características que el módulo de actividad de GlucoCheck incorpora en su diseño.
+El módulo de actividad física de GlucoCheck está diseñado para ser accesible a pacientes con distintos niveles de condición física y funcionalidad articular, ofreciendo metas semanales progresivas e individualizables por el equipo de salud. Los recordatorios para romper el sedentarismo cada dos horas se fundamentan en la evidencia de que la interrupción frecuente del tiempo sedentario continuo reduce los picos de glucemia postprandial de forma independiente al efecto del ejercicio estructurado (ADA, 2024). Los 
+mensajes motivacionales personalizados según el nivel de cumplimiento semanal del paciente refuerzan la autoeficacia para la actividad física, que Romero et al. (2023) identificaron como el predictor psicológico más importante de la adherencia al ejercicio en adultos con DM2.
+Componente 5: Módulo de Educación Diabetológica Interactiva
+N.° Componente
+Componente 5
+Nombre
+Módulo de Educación Diabetológica Interactiva
+Representación
+📚  [Libro / cerebro / lámpara de idea]
+Función principal
+Ofrece contenido educativo estructurado sobre DM2 en formato de cápsulas cortas (texto, infografías y videos breves de 2-5 minutos), organizadas en cinco unidades temáticas: (1) Conociendo mi diabetes, (2) Mi medicación correcta, (3) Alimentación saludable, (4) Movimiento y bienestar, y (5) Cuidado de mis pies y complicaciones. Incluye autoevaluaciones al final de cada unidad, un glosario de términos clave y un sistema de progreso gamificado con insignias de avance.
+Evidencia científica
+Ortega Millán (2023); Osorio-Hernández et al. (2024); Bustamante et al. (2024); Romero-Castillo et al. (2022); Quishpe Chirau et al. (2022)
+Indicador de uso
+Número de cápsulas educativas completadas; puntaje promedio en autoevaluaciones; porcentaje de avance por unidad; número de insignias obtenidas
+La educación diabetológica es condición necesaria para que el paciente pueda comprender su enfermedad, tomar decisiones de autocuidado fundamentadas y mantener la motivación para sostener los cambios conductuales requeridos por el tratamiento a largo plazo (Ortega Millán, 2023). Osorio-Hernández et al. (2024) demostraron que una intervención educativa estructurada en pacientes con DM2 produjo un incremento de 10 puntos en el nivel de conocimiento sobre la enfermedad (DKQ-24: 10.13 → 20.13; p < 0.001), con mejoras paralelas en los parámetros biométricos a los 90 días de seguimiento. Quishpe Chirau et al. (2022) confirmaron estos hallazgos en pacientes con DM2 en Ecuador, reportando cambios estadísticamente significativos en el autocuidado después de una intervención educativa cuasi-experimental (prueba de McNemar; p < 0.05).
+El módulo educativo de GlucoCheck adopta el enfoque de micro-aprendizaje (micro-learning), que consiste en ofrecer contenido educativo en unidades breves, autónomas y accesibles en cualquier momento del día, adaptadas al nivel de comprensión de pacientes con bajo nivel de alfabetización en salud. Este enfoque ha demostrado ser más efectivo que las sesiones educativas largas para la retención del conocimiento en adultos con enfermedades crónicas (Revistamedica.com, 2025). El sistema gamificado de insignias y progreso visible actúa como refuerzo conductual positivo, incrementando la motivación intrínseca del paciente para completar las unidades educativas y aplicar los conocimientos adquiridos en su vida diaria (Romero-Castillo et al., 2022).
+Componente 6: Módulo de Seguimiento Sanitario y Comunicación con el Equipo de Salud
+N.° Componente
+Componente 6
+Nombre
+Módulo de Seguimiento Sanitario y Comunicación
+Representación
+🏥  [Estetoscopio / calendario médico]
+Función principal
+Permite al paciente registrar y recibir recordatorios de sus citas médicas, exámenes de laboratorio programados (HbA1c, perfil lipídico, función renal, microalbuminuria) y revisiones especializadas (oftalmología, podología). Incluye un resumen clínico exportable con el historial de glucemias, adherencia farmacológica y actividad física, diseñado para ser compartido con el médico o enfermero tratante en cada consulta. Incorpora un módulo de mensajes de retroalimentación del equipo de salud al paciente entre consultas.
+Evidencia científica
+NPunto (2025); Castillo Merino (2024); SERGAS (2023); ADA (2024); Campoverde et al. (2024)
+El seguimiento sanitario periódico y estructurado es uno de los componentes más críticos del tratamiento integral de la DM2, dado que permite la detección precoz de complicaciones, el ajuste oportuno del tratamiento farmacológico y el refuerzo continuo de las conductas de autocuidado. La ADA (2024) establece que los pacientes con DM2 deben realizarse controles trimestrales de HbA1c, revisión anual de fondo de ojo, evaluación semestral de la función renal y revisión periódica del pie diabético, entre otros. Sin embargo, la asistencia a las citas de control y la realización de los exámenes complementarios 
+programados son dimensiones frecuentemente desatendidas en pacientes con DM2 del primer nivel de atención, especialmente en contextos periurbanos con barreras geográficas y de acceso (SERGAS, 2023).
+El módulo de seguimiento sanitario de GlucoCheck actúa como un gestor de citas y exámenes que recuerda al paciente sus compromisos de salud con antelación suficiente para planificar su asistencia. El resumen clínico exportable en formato PDF sintetiza en una sola página los datos de glucemia, adherencia farmacológica, actividad física y alimentación de las últimas semanas, optimizando el tiempo de la consulta y facilitando la toma de decisiones clínicas del equipo de salud (NPunto, 2025). El módulo de mensajería asíncrona entre el paciente y su enfermero o médico tratante permite reforzar el vínculo terapéutico y dar respuesta oportuna a dudas o situaciones clínicas entre consultas, en consonancia con los principios de la comunicación terapéutica empática que Castillo Merino (2024) identifica como determinantes de la adherencia a largo plazo.
+Tabla 2.X. Resumen de los seis componentes funcionales del aplicativo GlucoCheck y su correspondencia con las dimensiones de adherencia evaluadas
+N°
+Componente / Módulo
+Dimensión adherencia
+Funcionalidad clave
+Fuente
+1
+Registro y Monitoreo de Glucemia
+Monitoreo de glucosa
+Registro de glucemia capilar, alertas hipoglucemia/hiperglucemia, gráficos de tendencia
+ADA (2024); He et al. (2022)
+2
+Recordatorio de Medicación
+Adherencia farmacológica
+Notificaciones push por medicamento, confirmación de toma, historial de cumplimiento
+Islam et al. (2022); Benítez Matas et al. (2021)
+3
+Seguimiento Dietético
+Adherencia dietética
+Banco de alimentos peruanos, semáforo nutricional, registro de comidas, retroalimentación glucémica
+Pascual et al. (2021); Flores-Fuentes et al. (2025)
+4
+Actividad Física
+Actividad física
+Podómetro, metas semanales, recordatorio antisedentarismo, mensajes motivacionales
+Kim et al. (2024); ADA (2024)
+5
+Educación Diabetológica
+Educación en salud
+Micro-cápsulas educativas, autoevaluaciones, sistema gamificado de progreso
+Osorio-Hernández et al. (2024); Ortega Millán (2023)
+6
+Seguimiento 
+Sanitario
+Seguimiento 
+sanitario
+Recordatorio de citas y exámenes, resumen clínico exportable, 
+mensajería con equipo de salud
+NPunto (2025); 
+SERGAS (2023)
+REFERENCIAS BIBLIOGRÁFICAS
+Asociación Americana de Diabetes (ADA). (2024). Standards of Care in Diabetes—2024. Diabetes Care, 47(Supplement 1), S1–S291. https://doi.org/10.2337/dc24-SINT
+Benítez Matas, B., Calleja Hernández, M. A., y García Ruiz, A. J. (2021). Aplicaciones móviles para mejorar la adherencia a la medicación: revisión y análisis de calidad. Atención Primaria, 53(10), 102149. https://doi.org/10.1016/j.aprim.2021.102149
+Bustamante, V. M., Rivera, J., Maldonado, G., y Ponce, J. (2024). Riesgo de pie diabético en la persona mayor: importancia del autocuidado en la diabetes tipo 2 desde una visión narrativa. Ciencia Latina Revista Científica Multidisciplinar, 8(1), 436–456. https://doi.org/10.37811/cl_rcm.v8i1.9429
+Campoverde González, W. P., Reyes Yanza, M. E., Balladares Pineda, J. A., Ramón Japón, G. E., y Maldonado Encalada, Y. S. (2024). Impacto del seguimiento farmacoterapéutico en la adherencia al tratamiento de pacientes con Diabetes Mellitus tipo II. Ciencia Latina Revista Científica Multidisciplinar, 8(5), 2196–2211. https://doi.org/10.37811/cl_rcm.v8i5.13683
+Castillo Merino, Y. A. (2024). Rol de enfermería en la adherencia terapéutica de los adultos mayores con diabetes mellitus tipo 2 en centro de salud Paján [Tesis de maestría]. Universidad Estatal del Sur de Manabí.
+Flores-Fuentes, E., Rodríguez-Herrera, A., Macias-Cervantes, M. H., Ibarra-Pastrana, G. A., Zacarias-Cruz, J. B., y Almager-Espinoza, D. B. (2025). Prácticas alimentarias en la diabetes tipo 2: construcción, validez y confiabilidad de una escala. Nutrición Hospitalaria, 42(1). https://doi.org/10.20960/nh.05068
+He, Q., Zhao, X., Wang, Y., Xie, Q., y Cheng, L. (2022). Effectiveness of smartphone application-based self-management interventions in patients with type 2 diabetes: A systematic review and meta-analysis of randomized controlled trials. Journal of Advanced Nursing, 78(2), 348–362. https://doi.org/10.1111/jan.14993
+Islam, S. M. S., Mishra, V., Siddiqui, M. U., Moses, J. C., Adibi, S., Nguyen, L., y Maddison, R. (2022). Smartphone Apps for Diabetes Medication Adherence: Systematic Review. JMIR Diabetes, 7(2), e33264. https://doi.org/10.2196/33264
+Juárez-Pacheco, S., Guzmán-Saldaña, R. M. E., Escamilla-Gutiérrez, M. L., Lerma-Talamantes, A., y Galván-García, M. M. (2023). Creencias y adherencia al tratamiento en Diabetes Mellitus Tipo 2. Educación y Salud Boletín Científico UAEH, 12(23), 87–93. https://doi.org/10.29057/icsa.v12i23.11326
+Kim, H. S., Cho, J. H., y Noh, J. H. (2024). Effects of a smartphone application-based intervention to promote physical activity in patients with type 2 diabetes: An open-label, randomized controlled trial. Journal of Diabetes Investigation, 15(3), 312–321. https://doi.org/10.1111/jdi.14123
+Marín Sánchez, A., Restrepo Erazo, K., Palacios Bayona, K., Veloza Naranjo, A., Mora Thiriez, S., Valencia, L. M., y Mendivil, C. O. (2025). Consenso de expertos sobre terapia médica nutricional para personas con diabetes tipo 2. Revista Colombiana de Endocrinología, Diabetes y Metabolismo, 12(2). https://doi.org/10.53853/encr.12.2.929
+Moura, A. C. R. A., Carvalho, L. S., Lima, R. L., y Martins, C. (2024). Maximizando a adesão ao tratamento: o papel dos aplicativos de monitoramento da diabetes. Revista Científica da UNIFENAS, 6(4).
+NPunto. (2025). Efectividad de intervenciones enfermeras en la adherencia terapéutica de pacientes con diabetes tipo 2. Revista NPunto, 92. https://www.npunto.es/revista/92
+Ortega Millán, C. (2023). Educación para la salud en diabetes tipo 2. En Sociedad Andaluza de Medicina Familiar y Comunitaria (Ed.), Guía de Diabetes Tipo 2 para Clínicos (Cap. 6). SAMFYC.
+Osorio-Hernández, N. D., Juárez-Flores, G., Barrera-García, E., Guzmán-Balderas, D., y Emigdio-Vargas, A. (2024). Impacto de la intervención educativa en el autocuidado de pacientes con Diabetes Mellitus tipo 2. Ciencia Latina, 8(5), 601–620. https://doi.org/10.37811/cl_rcm.v8i5.13371
+Pascual, V., Pérez, A., Carretero, J., Caixàs, A., Gómez-Huelgas, R., y Pérez-Martínez, P. (2021). Resumen ejecutivo: actualización en el tratamiento dietético de la prediabetes y la diabetes mellitus tipo 2. Endocrinología, Diabetes y Nutrición, 68(4). https://doi.org/10.1016/j.endinu.2020.11.003
+Pérez-Kast, R. C., García-Ulloa, A. C., Wacher-Rodarte, N. H., y Aguilar-Salinas, C. A. (2024). Prescripción del ejercicio físico en pacientes con diabetes mellitus tipo 2. Medicina Interna de México, 40(1), 51–62.
+Quevedo Rodríguez, A., y Wägner, A. M. (2023). Mobile phone applications for diabetes management: A systematic review. Endocrinología, Diabetes y Nutrición, 70(5), 335–346. https://doi.org/10.1016/j.endinu.2023.03.008
+Quishpe Chirau, S. M., Tixi Berrones, N. S., Quijosaca Cajilema, L. A., Llerena Flores, G. E., Camacho Abarca, E. M., y Solis Cartas, U. (2022). Intervención educativa en pacientes con diabetes mellitus tipo II. Revista Cubana de Reumatología, 24(1), e270.
+Revistamedica.com. (2025). Efectividad de la educación terapéutica en enfermería para la mejora de la adherencia al tratamiento en pacientes con diabetes mellitus tipo 2: revisión sistemática. https://revistamedica.com/efectividad-educacion-terapeutica-mejora-adherencia-tratamiento-pacientes-diabetes/
+Rodríguez Meléndez, A., Herrero Tejedor, T., y Navas Alcántara, M. S. (2023). Diseño de programas de ejercicio físico en personas con diabetes mellitus tipo 2. Diabetes Práctica, 14(1).
+Romero-Castillo, R., Pabón Carrasco, M., Jiménez Picón, N., y Ponce Blandon, J. A. (2022). Manejo de la diabetes después de un programa de educación terapéutica: un estudio cualitativo. Healthcare, 10(8), 1375. https://doi.org/10.3390/healthcare10081375
+Romero, S. I. J., Madin Juárez, B., Gómez Martínez, V., y Álvarez Orozco, M. E. (2023). Autoeficacia para actividad física en adultos mayores con diabetes mellitus II. Ciencia Latina, 7(3), 7187–7202. https://doi.org/10.37811/cl_rcm.v7i3.6711
+Servicio Galego de Saúde (SERGAS). (2023). Proceso asistencial integrado diabetes mellitus tipo 2: Actualización 2023. Consellería de Sanidade. https://www.sergas.gal

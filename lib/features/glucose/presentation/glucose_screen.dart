@@ -17,9 +17,6 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   List<GlucoseReading> _readings = [];
   bool _isLoading = true;
 
-  // Chart Filtering
-  String _chartFilter = 'Weekly'; // Daily, Weekly, Monthly
-
   @override
   void initState() {
     super.initState();
@@ -94,7 +91,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                 children: [
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      value: selectedType,
+                      initialValue: selectedType,
                       items: ['Ayunas', 'Postprandial'].map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
                       onChanged: (val) => setModalState(() => selectedType = val!),
                       decoration: const InputDecoration(labelText: 'Momento'),
@@ -203,7 +200,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                                 isCurved: true,
                                 color: Theme.of(context).primaryColor,
                                 dotData: const FlDotData(show: true),
-                                belowBarData: BarAreaData(show: true, color: Theme.of(context).primaryColor.withOpacity(0.2)),
+                                belowBarData: BarAreaData(show: true, color: Theme.of(context).primaryColor.withValues(alpha: 0.2)),
                               ),
                             ],
                           ),

@@ -1,6 +1,12 @@
 # 🩸 GlucoCheck — Control de diabetes en tu bolsillo
 
+<img src="docs/logo.png" alt="GlucoCheck" width="110">
+
 Aplicación móvil en **Flutter** para que personas con diabetes lleven el control diario de su salud: glucosa, medicamentos, hábitos y educación — todo **guardado localmente en el teléfono**, sin cuentas ni internet.
+
+## Capturas
+
+<img src="docs/dashboard.png" alt="Pantalla principal de GlucoCheck" width="300">
 
 ## Características
 
@@ -9,6 +15,7 @@ Aplicación móvil en **Flutter** para que personas con diabetes lleven el contr
 - ✅ **Hábitos saludables:** seguimiento de agua, ejercicio, alimentación y sueño.
 - 📚 **Módulo educativo** con información práctica sobre la diabetes (tipos, alimentación, señales de alerta).
 - 👤 **Perfil y onboarding:** datos personales, tipo de diabetes y rangos objetivo personalizados.
+- 🏥 **Citas y exámenes:** agenda de consultas y controles (HbA1c, podología, oftalmología) con recordatorio automático el día anterior, y **exportación del historial clínico a PDF** para llevárselo al médico.
 - 📊 **Dashboard** que resume el estado del día de un vistazo.
 
 ## Tecnologías
@@ -18,6 +25,7 @@ Aplicación móvil en **Flutter** para que personas con diabetes lleven el contr
 - **sqflite** — base de datos local SQLite
 - **flutter_local_notifications** — recordatorios de medicación
 - **fl_chart** — gráficos de tendencias
+- **pdf** + **share_plus** — reporte clínico exportable
 - Arquitectura por **features** (`glucose/`, `medication/`, `habits/`, `education/`, `profile/`, `dashboard/`)
 
 ## Estructura del proyecto
@@ -34,6 +42,7 @@ lib/
 │   ├── medication/              # Medicamentos y recordatorios
 │   ├── habits/                  # Hábitos saludables
 │   ├── education/               # Contenido educativo
+│   ├── sanitario/               # Citas médicas y reporte clínico en PDF
 │   └── profile/                 # Onboarding y perfil
 └── main.dart
 ```

@@ -20,12 +20,12 @@ class GlucoseNotifier extends StateNotifier<GlucoseState> {
 
   Future<void> loadReadings() async {
     state = GlucoseState(readings: state.readings, isLoading: true);
-    final data = await _db.getReadings();
+    final data = await _db.getGlucoseReadings();
     state = GlucoseState(readings: data, isLoading: false);
   }
 
   Future<void> addReading(GlucoseReading reading) async {
-    await _db.insertReading(reading);
+    await _db.insertGlucose(reading);
     await loadReadings();
   }
   

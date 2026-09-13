@@ -21,8 +21,9 @@ class DatabaseService {
     String path = join(await getDatabasesPath(), 'glucocheck.db');
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
   }
 
@@ -54,6 +55,27 @@ class DatabaseService {
         type TEXT,
         name TEXT,
         details TEXT,
+        date TEXT
+      )
+    ''');
+
+    await _createAppointmentsTable(db);
+  }
+
+  /// Las instalaciones creadas con la versión 1 no tienen la tabla de citas:
+  /// se añade aquí en vez de borrar la base de datos del usuario.
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await _createAppointmentsTable(db);
+    }
+  }
+
+  Future<void> _createAppointmentsTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS appointments(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT,
+        type TEXT,
         date TEXT
       )
     ''');
@@ -108,5 +130,23 @@ class DatabaseService {
       final db = await database;
       final List<Map<String, dynamic>> maps = await db.query('habits', orderBy: 'date DESC');
       return List.generate(maps.length, (i) => HabitLog.fromMap(maps[i]));
+  }
+
+  // Citas y exámenes médicos
+  Future<int> insertAppointment(MedicalAppointment appointment) async {
+    final db = await database;
+    return await db.insert('appointments', appointment.toMap());
+  }
+
+  Future<List<MedicalAppointment>> getAppointments() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps =
+        await db.query('appointments', orderBy: 'date ASC');
+    return List.generate(maps.length, (i) => MedicalAppointment.fromMap(maps[i]));
+  }
+
+  Future<void> deleteAppointment(int id) async {
+    final db = await database;
+    await db.delete('appointments', where: 'id = ?', whereArgs: [id]);
   }
 }

@@ -52,25 +52,27 @@ class _AddGlucoseScreenState extends ConsumerState<AddGlucoseScreen> {
               
               // Momento
               const Text('Momento de la medición:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-              Row(
-                children: [
-                   Expanded(
-                     child: RadioListTile<String>(
-                       title: const Text('Ayunas'),
-                       value: 'Ayunas',
-                       groupValue: _type,
-                       onChanged: (val) => setState(() => _type = val!),
-                     ),
-                   ),
-                   Expanded(
-                     child: RadioListTile<String>(
-                       title: const Text('Post-Comida'),
-                       value: 'Postprandial',
-                       groupValue: _type,
-                       onChanged: (val) => setState(() => _type = val!),
-                     ),
-                   ),
-                ],
+              // RadioGroup gestiona el valor del grupo: desde Flutter 3.32
+              // groupValue y onChanged en cada Radio están deprecados.
+              RadioGroup<String>(
+                groupValue: _type,
+                onChanged: (val) => setState(() => _type = val!),
+                child: const Row(
+                  children: [
+                    Expanded(
+                      child: RadioListTile<String>(
+                        title: Text('Ayunas'),
+                        value: 'Ayunas',
+                      ),
+                    ),
+                    Expanded(
+                      child: RadioListTile<String>(
+                        title: Text('Post-Comida'),
+                        value: 'Postprandial',
+                      ),
+                    ),
+                  ],
+                ),
               ),
               
               const SizedBox(height: 20),

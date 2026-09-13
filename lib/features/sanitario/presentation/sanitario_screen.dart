@@ -2,7 +2,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart'; 
@@ -33,6 +32,9 @@ class _SanitarioScreenState extends State<SanitarioScreen> {
   }
 
   Future<void> _addAppointment(String title, String type, DateTime date, TimeOfDay time) async {
+    // Se formatea la hora antes del primer await: usar el BuildContext después
+    // de una operación asíncrona no es seguro si la pantalla ya se cerró.
+    final horaTexto = time.format(context);
     final finalDate = DateTime(date.year, date.month, date.day, time.hour, time.minute);
     
     final appt = MedicalAppointment(
@@ -49,7 +51,7 @@ class _SanitarioScreenState extends State<SanitarioScreen> {
       await NotificationService().scheduleNotification(
         id: id + 1000, 
         title: 'Recordatorio de Salud 🏥', 
-        body: 'Mañana tienes: $title ($type) a las ${time.format(context)}', 
+        body: 'Mañana tienes: $title ($type) a las $horaTexto', 
         scheduledTime: reminderDate
       );
     }
@@ -80,7 +82,7 @@ class _SanitarioScreenState extends State<SanitarioScreen> {
                      DateFormat('dd/MM/yy HH:mm').format(r.date),
                      '${r.value}',
                      r.type,
-                     r.context ?? 'Rutina'
+                     r.note ?? 'Rutina'
                    ])
                  ],
                ),
@@ -125,7 +127,7 @@ class _SanitarioScreenState extends State<SanitarioScreen> {
               ),
               const SizedBox(height: 10),
               DropdownButtonFormField<String>(
-                value: selectedType,
+                initialValue: selectedType,
                 decoration: const InputDecoration(labelText: 'Tipo'),
                 items: ['Cita Médica', 'Examen (HbA1c, etc.)', 'Podología', 'Oftalmología'].map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
                 onChanged: (val) => setModalState(() => selectedType = val!),

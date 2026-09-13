@@ -27,7 +27,9 @@ class GlucoseReading {
   factory GlucoseReading.fromMap(Map<String, dynamic> map) {
     return GlucoseReading(
       id: map['id'],
-      value: map['value'],
+      // SQLite puede devolver int para una columna REAL si el valor
+      // guardado no tiene decimales; num.toDouble() evita el error de tipo.
+      value: (map['value'] as num).toDouble(),
       date: DateTime.parse(map['date']),
       type: map['type'],
       note: map['note'],
@@ -77,11 +79,11 @@ class Medication {
   Medication copyWith({int? id, DateTime? lastTaken}) {
       return Medication(
           id: id ?? this.id,
-          name: this.name,
-          dosage: this.dosage,
-          schedule: this.schedule,
+          name: name,
+          dosage: dosage,
+          schedule: schedule,
           lastTaken: lastTaken ?? this.lastTaken,
-          frequency: this.frequency,
+          frequency: frequency,
       );
   }
 }
@@ -158,6 +160,38 @@ class HabitLog {
       type: map['type'],
       name: map['name'],
       details: map['details'],
+      date: DateTime.parse(map['date']),
+    );
+  }
+}
+
+class MedicalAppointment {
+  final int? id;
+  final String title;
+  final String type; // 'Cita Médica', 'Examen (HbA1c, etc.)', 'Podología'...
+  final DateTime date;
+
+  const MedicalAppointment({
+    this.id,
+    required this.title,
+    required this.type,
+    required this.date,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'type': type,
+      'date': date.toIso8601String(),
+    };
+  }
+
+  factory MedicalAppointment.fromMap(Map<String, dynamic> map) {
+    return MedicalAppointment(
+      id: map['id'],
+      title: map['title'],
+      type: map['type'],
       date: DateTime.parse(map['date']),
     );
   }

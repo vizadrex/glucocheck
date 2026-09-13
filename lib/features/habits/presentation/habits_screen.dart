@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../../../core/services/database_service.dart';
 import '../../../data/models/models.dart';
 
@@ -54,6 +53,38 @@ class _HabitsScreenState extends State<HabitsScreen> with SingleTickerProviderSt
     }
   }
 
+  /// Muestra lo que el usuario ya registró. Antes los hábitos se guardaban en
+  /// la base de datos y se recargaban en _logs, pero no se mostraban en ninguna
+  /// pantalla: el registro desaparecía de la vista al guardarlo.
+  Widget _buildHistorial(String tipo, String vacio) {
+    final registros = _logs.where((l) => l.type == tipo).toList();
+
+    if (registros.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Text(vacio, style: const TextStyle(color: Colors.black54)),
+      );
+    }
+
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: registros.length,
+      itemBuilder: (context, i) {
+        final r = registros[i];
+        return ListTile(
+          dense: true,
+          leading: Icon(tipo == 'food' ? Icons.restaurant : Icons.directions_run),
+          title: Text(r.name),
+          subtitle: Text(r.details == 'N/A' ? _fecha(r.date) : '${r.details} · ${_fecha(r.date)}'),
+        );
+      },
+    );
+  }
+
+  String _fecha(DateTime d) =>
+      '${d.day.toString().padLeft(2, '0')}/${d.month.toString().padLeft(2, '0')} '
+      '${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
+
   Widget _buildFoodTab() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -75,14 +106,17 @@ class _HabitsScreenState extends State<HabitsScreen> with SingleTickerProviderSt
             child: const Text('GUARDAR ALIMENTO'),
           ),
           const SizedBox(height: 20),
-          const Text('Sugerencias Saludables:', style: TextStyle(fontWeight: FontWeight.bold)),
           Expanded(
             child: ListView(
-              children: const [
-                ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Ensalada de vegetales frescos')),
-                ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Pechuga de pollo a la plancha')),
-                ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Frutas bajas en azucar (Fresa, Kiwi)')),
-                ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Agua (2 litros diarios)')),
+              children: [
+                const Text('Tus registros:', style: TextStyle(fontWeight: FontWeight.bold)),
+                _buildHistorial('food', 'Todavía no has registrado ninguna comida.'),
+                const Divider(height: 24),
+                const Text('Sugerencias Saludables:', style: TextStyle(fontWeight: FontWeight.bold)),
+                const ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Ensalada de vegetales frescos')),
+                const ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Pechuga de pollo a la plancha')),
+                const ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Frutas bajas en azúcar (fresa, kiwi)')),
+                const ListTile(leading: Icon(Icons.check, color: Colors.green), title: Text('Agua (2 litros diarios)')),
               ],
             ),
           )
@@ -118,6 +152,13 @@ class _HabitsScreenState extends State<HabitsScreen> with SingleTickerProviderSt
               }
             },
             child: const Text('GUARDAR ACTIVIDAD'),
+          ),
+          const SizedBox(height: 20),
+          const Text('Tus registros:', style: TextStyle(fontWeight: FontWeight.bold)),
+          Expanded(
+            child: SingleChildScrollView(
+              child: _buildHistorial('activity', 'Todavía no has registrado ninguna actividad.'),
+            ),
           ),
         ],
       ),

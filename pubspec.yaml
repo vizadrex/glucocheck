@@ -1,5 +1,5 @@
 name: glucocheck
-description: A new Flutter project for diabetes management.
+description: Control diario de diabetes — glucosa, medicación, hábitos y recordatorios, todo local en el dispositivo.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -15,10 +15,14 @@ dependencies:
   path: ^1.8.3
   fl_chart: ^0.66.0
   flutter_local_notifications: ^17.0.0
+  timezone: ^0.9.2
   intl: ^0.19.0
   shared_preferences: ^2.2.2
   google_fonts: ^6.1.0
   cupertino_icons: ^1.0.2
+  pdf: ^3.11.0
+  path_provider: ^2.1.4
+  share_plus: ^10.1.2
 
 dev_dependencies:
   flutter_test:

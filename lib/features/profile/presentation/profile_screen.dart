@@ -109,7 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       const SizedBox(height: 10),
                       DropdownButtonFormField<String>(
-                        value: _sex,
+                        initialValue: _sex,
                         decoration: const InputDecoration(labelText: 'Sexo', icon: Icon(Icons.male)),
                         items: ['Male', 'Female', 'Other'].map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
                         onChanged: (val) => setState(() => _sex = val!),
@@ -127,7 +127,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     children: [
                        DropdownButtonFormField<String>(
-                        value: _diabetesType,
+                        initialValue: _diabetesType,
                         decoration: const InputDecoration(labelText: 'Tipo de Diabetes', icon: Icon(Icons.medical_services)),
                         items: ['Type 1', 'Type 2', 'Gestacional'].map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
                         onChanged: (val) => setState(() => _diabetesType = val!),

@@ -5,6 +5,7 @@ import '../../glucose/presentation/glucose_screen.dart';
 import '../../medication/presentation/medication_screen.dart';
 import '../../habits/presentation/habits_screen.dart';
 import '../../education/presentation/education_screen.dart';
+import '../../sanitario/presentation/sanitario_screen.dart';
 import '../../profile/presentation/profile_screen.dart';
 import '../../../core/services/database_service.dart';
 import '../../../data/models/models.dart';
@@ -66,7 +67,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4, spreadRadius: 1)],
+                  boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 4, spreadRadius: 1)],
                 ),
                 child: _recentReadings.isEmpty
                     ? const Center(child: Text('Registra tu glucosa para ver el grafico'))
@@ -123,6 +124,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     label: 'Educación',
                     onTap: () => _navigateTo(const EducationScreen()),
                   ),
+                  _buildMenuCard(
+                    icon: Icons.local_hospital,
+                    color: Colors.teal,
+                    label: 'Citas y exámenes',
+                    onTap: () => _navigateTo(const SanitarioScreen()),
+                  ),
                 ],
               ),
             ],
@@ -141,7 +148,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
-             BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4, spreadRadius: 2)
+             BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 4, spreadRadius: 2)
           ],
         ),
         child: Column(
@@ -149,7 +156,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: [
             CircleAvatar(
               radius: 25,
-              backgroundColor: color.withOpacity(0.1),
+              backgroundColor: color.withValues(alpha: 0.1),
               child: Icon(icon, color: color, size: 30),
             ),
             const SizedBox(height: 10),
